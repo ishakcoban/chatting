@@ -1,0 +1,36 @@
+.logo-wrapper {
+  margin-bottom: 4%;
+  font-family: $logo_font;
+  font-size: 2rem;
+  color: $white;
+}
+
+.input{
+  border-radius: 45px;
+  border: 0;
+  width: 100%;
+  background-color: $grey;
+  text-indent: 10px;
+}
+
+.input::placeholder{
+  text-align: center;
+  padding: 65px;
+  color: #A1A1A1;
+}
+
+.log-reg-button{
+  border: 0;
+  background-color: $purple;
+  color: $white;
+  border-radius: 45px;
+}
+
+.log-register-link{
+  color: $purple;
+}
+
+.log-register-link:hover{
+  cursor: pointer;
+  color: blue;
+}

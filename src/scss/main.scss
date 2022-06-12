@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+//globals
+
+@import "./globals/colors";
+@import "./globals/fonts";
+
+//pages
+
+@import "./pages/chat";
+@import "./pages/home";
+@import "./pages/login";
+@import "./pages/register";
+
+//components
+
+@import "./components/navbar";
+@import "./components/popup";
+@import "./components/flowButton";
+@import "./components/sendMessageSection";
+@import "./components/messageLeft";
+@import "./components/messageRight";
+
+//templates
+
+@import "./templates/background";
+@import "./templates/loginRegister"

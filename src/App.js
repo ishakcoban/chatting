@@ -8,32 +8,32 @@ import {
   BrowserRouter,
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect,
   Routes
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+    
   const [show, setShow] = useState(false)
   const clickHandler = () => {
     setShow(!show)
-}
+  }
 
 
   return (
     <BrowserRouter>
-<div >
+      <div >
 
-      <Navbar click={show}></Navbar>
-      <Routes >
-        <Route exact path="/" element={<div><Login /></div>}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/home" element={<div onClick={clickHandler}><Home /></div>}></Route>
-        <Route path="/chat" element={<div  onClick={clickHandler}><Chat /></div>}></Route>
+        {<Navbar click={show}></Navbar>}
 
-      </Routes>
+        {<Routes >
+          <Route exact path="/" element={<div><Login /></div>}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/home" element={<div onClick={clickHandler}><Home /></div>}></Route>
+          <Route path="/chat" element={<div onClick={clickHandler}><Chat /></div>}></Route>
+
+        </Routes>}
       </div>
     </BrowserRouter>
   );

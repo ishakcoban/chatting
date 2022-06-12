@@ -1,0 +1,92 @@
+.logo-name {
+    font-family: "Pacifico", cursive;
+    font-size: 1.7rem;
+  }
+  .navbar-wrapper {
+    background-color: $white;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .navbar-image {
+    width: 45px;
+    padding: 10px;
+  }
+  
+  .navbar-image:hover {
+    border-radius: 100%;
+    background-color: #4846d19e;
+    cursor: pointer;
+    transition: background-color 0.6s;
+  }
+  
+  .nav-link-active {
+    border-radius: 100%;
+    background-color: #4846d19e;
+  }
+  
+  .logo {
+    cursor: pointer;
+  }
+  
+  .dropdown-menuu {
+    background-color: $white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 30px;
+    animation-name: dropD;
+    animation-duration: 0.6s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    z-index: 5;
+  }
+  
+  @keyframes dropD {
+    0% {
+    }
+    100% {
+      opacity: 1;
+      margin-top: 50px;
+    }
+  }
+  
+  .dropdown-link {
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  .dropdown-link:hover {
+    background-color: $grey;
+    cursor: pointer;
+  }
+  
+  .ntf {
+    width: 250%;
+    height: 45vh;
+    overflow-y: auto;
+  }
+
+  .notify-wrapper{
+    cursor: pointer;
+    border-radius: 100%;
+  }
+  .notify-wrapper:hover{
+    cursor: pointer;
+    border-radius: 100%;
+  }
+
+  .notification-circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    left: 0;
+    top: 10px;
+    background-color: red;
+    color: $white;
+    font-size: 0.7rem;
+    font-weight: normal;
+    cursor: pointer;
+  }

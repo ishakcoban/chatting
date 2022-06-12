@@ -1,0 +1,101 @@
+.flow-button-circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  color: #d9d9d9;
+  background-color: #4946d1;
+}
+
+.flowButton-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 35px;
+  background-color: #d9d9d9;
+  animation-name: btn;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  margin-top: 100px;
+}
+
+@keyframes btn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+.flowbutton-list-wrapper {
+  border-radius: 100px 0px 0px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  padding: 50px;
+  height: 88vh;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  overflow-y: auto;
+}
+
+.flowButton {
+  width: 100%;
+  border: 0;
+  border-radius: 20px;
+  color: $grey;
+  font-weight: normal;
+  font-size: 1rem;
+  padding: 4px 24px 4px 24px;
+  background-color: $purple;
+}
+
+.flowButton:hover {
+  background-color: $turquoise;
+}
+
+@media only screen and (max-width: 694px) {
+  .flowButton-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;    
+    width: 100%;
+    border-radius: 35px;
+    background-color: $grey;
+    animation-name: btn;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    margin-top: 100px;
+  }
+
+  .flow-button-circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    color: $grey;
+    background-color: $purple;
+  }
+
+  .flowbutton-list-wrapper {
+    border-radius: 100px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    overflow-y: auto;
+  }
+  .flowButton {
+    width: 70px;
+    border: 0;
+    border-radius: 20px;
+    color: $grey;
+    font-weight: normal;
+    font-size: .8rem;
+    background-color: $purple;
+  }
+}
