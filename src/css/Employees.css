@@ -1,0 +1,124 @@
+.add-btn {
+  border: none;
+  outline: none;
+  background: #0052cc;
+  width: 175px;
+  height: 40px;
+  color: #fff;
+  border-radius: 14px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.add-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.button-sort-group {
+  padding-right: 40px;
+}
+
+.addPopup {
+  width: 460px;
+  height: 310px;
+  padding: 45px;
+  background-color: #f9fafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addPopup .header {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 400;
+  color: #171717;
+  font-size: 32px;
+  text-align: center;
+}
+
+.addPopup .text {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 400;
+  color: #171717;
+  font-size: 17px;
+  text-align: center;
+  border: 0;
+}
+
+.addPopup .button {
+  padding: 10px 28px;
+  border-radius: 5px;
+  line-height: 20px;
+  border: 0;
+  border-radius: 16px;
+  background: #0052cc;
+  color: #fff;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.employee-item {
+  width: 25%;
+  padding-left: 10px;
+}
+
+.employee-item-icon {
+  width: 5%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-employee {
+  width: 25%;
+  padding-left: 10px;
+}
+
+.list-employee-icon {
+  width: 5%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-employee-info {
+  margin-top: 32px;
+  color: #8f92a1;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.add-employe-details-content {
+  height: calc(100vh - 105px) !important;
+}
+
+.select-search__not-found {
+  height: auto;
+  padding: 16px;
+  text-align: center;
+  color: rgba(94, 94, 94, 0);
+}
+
+.select-search__not-found a {
+  text-decoration: none;
+}
+
+.AddEmployeeButton {
+  margin-top: 5px;
+  background: #0052cc;
+  color: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 14px;
+}

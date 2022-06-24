@@ -1,0 +1,162 @@
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.address-overlay-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  background: white;
+  width: 40%;
+  height: 80%;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 1245px) {
+  .address-overlay-content {
+    width: 90%;
+    height: 95%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .address-overlay-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.address-overlay-content::-webkit-scrollbar {
+  display: none;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 14px;
+  color: #8f92a1;
+  padding: 12px 0 5px 0;
+  margin-bottom: 3px;
+}
+
+.text {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 12px 15px;
+  height: 44px;
+  font-size: 16px;
+  margin-bottom: 3px;
+  outline: none;
+}
+
+.city-town-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.town {
+  width: 48%;
+}
+
+.town-text {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.city-select {
+  position: relative;
+}
+
+.city-select .city-drop {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  z-index: -1;
+  width: 32px;
+}
+
+.city-select select {
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  font-weight: bold;
+  padding-top: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 7px;
+  height: 44px;
+  padding-left: 10px;
+}
+
+.city {
+  width: 48%;
+}
+
+.city-text {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.town-select {
+  position: relative;
+}
+
+.town-select .town-drop {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  z-index: -1;
+  width: 32px;
+}
+
+.town-select select {
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  font-weight: bold;
+  padding-top: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 7px;
+  height: 44px;
+  padding-left: 10px;
+}

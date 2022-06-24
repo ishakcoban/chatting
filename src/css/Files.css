@@ -1,0 +1,347 @@
+.files-content {
+  margin: 60px 20px 0 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 7px;
+}
+
+.files-content .add-new-file {
+  width: 30.1%;
+  height: 120px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: rgba(143, 146, 161, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.files-content .add-new-file:hover {
+  transform: scale(1.05);
+}
+
+.files-content .add-new-file .add-file-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+}
+
+.files-content .add-new-file .add-file-text .plus-icon {
+  width: 32px;
+  margin-bottom: 3px;
+  margin-right: 5px;
+}
+
+.file-header-group {
+  width: 100%;
+  box-shadow: 0px 7px 23px -1px rgba(0, 0, 0, 0.35);
+}
+
+.file-header-group .file-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 30px 20px;
+}
+
+.file-header-group .file-header .file-text-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.file-header-group .file-header .file-text-group .file-text-icon {
+  display: flex;
+  align-items: center;
+}
+
+.file-header-group .file-header .file-text-group .file-text-icon .file-text {
+  text-decoration: none;
+  color: #0052cc;
+  font-weight: bold;
+  font-size: 21px;
+  margin-right: 9px;
+}
+
+.file-header-group .file-header .file-text-group .file-detail-text {
+  font-size: 20px;
+  color: black;
+  margin-left: 10px;
+}
+
+.file-header-group .file-header .add-file-btns {
+  display: flex;
+  align-items: center;
+}
+
+.file-header-group .file-header .add-file-btns .btn {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  height: 44px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.4s ease-in;
+  width: 140px;
+  text-align: center;
+}
+
+.file-header-group .file-header .add-file-btns .btn:hover {
+  transform: scale(1.05);
+}
+
+.file-header-group .file-header .add-file-btns .btn:active {
+  transform: scale(0.98);
+}
+
+.file-header-group .file-header .add-file-btns .save-button {
+  background-color: #0052cc;
+  color: white;
+}
+
+.file-header-group .file-header .add-file-btns .go-back {
+  background-color: #f9fafa;
+  margin-right: 15px;
+  color: black;
+}
+
+.file-name-content {
+  background-color: rgba(143, 146, 161, 0.05);
+  padding: 30px 0;
+}
+
+.file-name-content .file-infos {
+  max-width: 1200px;
+  margin: 35px auto;
+  background-color: white;
+  padding: 30px 35px;
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.2);
+}
+
+.file-name-content .file-infos .file-in-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.file-name-content .file-infos .file-in-info .file-name-group {
+  width: 100%;
+}
+
+.file-name-content .file-infos .file-in-info .file-name-group .file-name {
+  font-size: 14px;
+  color: #8f92a1;
+  padding: 12px 0 5px 0;
+  margin-top: 10px;
+}
+
+.file-name-content .file-infos .file-in-info .file-name-group .editable-text-file {
+  position: relative;
+}
+
+.file-name-content .file-infos .file-in-info .file-name-group .editable-text-file .pencil-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 14px;
+  width: 23px;
+  cursor: pointer;
+}
+
+.file-name-content .file-infos .file-in-info .file-name-group .file-name-input {
+  margin-top: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  font-weight: bold;
+  padding: 12px 15px;
+  width: 100%;
+  height: 49px;
+}
+
+.file-name-content .file-infos .file-in-info .file-name-group .file-info-text {
+  margin-top: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8f92a1;
+}
+
+.file-name-content .file-infos .file-in-info .customer-surname-div {
+  width: 48%;
+}
+
+.file-name-content .file-infos .file-in-info .customer-surname-div .c-surname {
+  font-size: 14px;
+  color: #8f92a1;
+  padding: 12px 0 5px 0;
+}
+
+.file-name-content .file-infos .file-in-info .customer-surname-div .c-surname-text {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 12px 15px;
+}
+
+.file-name-content .file-infos .file-upload-file {
+  margin-top: 25px;
+  height: 200px;
+  background-color: rgba(143, 146, 161, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='7' ry='7' stroke='%2380808033' stroke-width='4' stroke-dasharray='16%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.file-name-content .file-infos .file-upload-file .file-helper {
+  text-align: center;
+}
+
+.file-name-content .file-infos .file-upload-file .file-helper .file-img {
+  display: inline-block;
+  background-color: rgba(143, 146, 161, 0.2);
+  padding: 7px 13px;
+  border-radius: 16px;
+}
+
+.file-name-content .file-infos .file-upload-file .file-helper .file-img .upload-file {
+  width: 34px;
+}
+
+.file-name-content .file-infos .file-upload-file .file-helper .upload-text {
+  margin-top: 20px;
+  color: gray;
+  font-weight: bold;
+}
+
+.file-name-content .file-infos .file-upload-file .file-helper .upload-text .browse {
+  color: #0052cc;
+}
+
+.file-name-content .file-infos .file-display {
+  margin-top: 25px;
+  background-color: rgba(143, 146, 161, 0.2);
+  border-radius: 7px;
+  padding: 10px 0;
+}
+
+.file-name-content .file-infos .file-display .headers {
+  margin: 15px 30px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-name-content .file-infos .file-display .headers .header-text-group {
+  width: 50%;
+}
+
+.file-name-content .file-infos .file-display .headers .header-text-group .header-text {
+  color: #171717;
+  font-weight: bold;
+}
+
+.file-name-content .file-infos .file-display .file-content-headers {
+  background: white;
+  border-radius: 7px;
+  margin: 15px 30px;
+  padding: 28px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-name-content .file-infos .file-display .file-content-headers .header-text-group {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.file-name-content .file-infos .file-display .file-content-headers .header-text-group.file-group {
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.file-name-content .file-infos .file-display .file-content-headers .header-text-group.file-group .file-trash-icon {
+  cursor: pointer;
+}
+
+.file-name-content .file-infos .file-display .file-content-headers .header-text-group .header-text {
+  color: #8f92a1;
+  font-weight: bold;
+}
+
+.file-name-content .file-infos .file-display .file-content-headers .header-text-group .file-checkbox {
+  cursor: pointer;
+}
+
+.files-item {
+  border-radius: 18px;
+  width: 30%;
+  height: 120px;
+  background: #fff;
+  padding: 10px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease-in-out;
+  box-shadow: 0px 8px 30px rgba(80, 85, 136, 0.06);
+}
+
+.files-item a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.files-item:hover {
+  transform: scale(1.05);
+}
+
+.files-item .files-item-content {
+  background-color: rgba(255, 205, 108, 0.4);
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.files-item .files-item-content .files-item-text-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.files-item .files-item-content .files-item-text-group .files-name {
+  color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.files-item .files-item-content .files-item-text-group .files-name h3 {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.files-item .files-item-content .files-item-text-group .req-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.files-item .files-item-content .files-item-text-group .file-link a {
+  color: #0052cc;
+}

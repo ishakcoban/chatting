@@ -1,0 +1,245 @@
+body {
+  background: #fff;
+}
+
+nav {
+  padding: 20px 15px;
+}
+
+.nav-bot-hr {
+  border: none;
+  border-top: 1px solid #b5b6bd;
+  margin: 0;
+  padding: 0;
+}
+
+.form-section {
+  max-width: 584px;
+  margin: 0 auto 40px auto;
+}
+
+.override-form-section {
+  margin-top: 80px;
+}
+
+.form-header-text {
+  width: 100%;
+  margin: 30px auto 40px auto;
+}
+
+.form-header-text-p {
+  font-size: 36px;
+  font-family: inherit;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.override-text-p {
+  font-weight: bold;
+}
+
+.info-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.demo-request {
+  color: #0052cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.demo-request:hover {
+  text-decoration: underline;
+}
+
+.form-group {
+  display: flex;
+  width: 100%;
+}
+
+.input-half {
+  height: 46px;
+  width: 280px;
+  border: 1px #8f92a1 solid;
+  border-radius: 7px;
+  margin-bottom: 25px;
+  font-family: inherit;
+  padding: 0 20px;
+  font-size: 14px;
+  color: black;
+}
+
+.input-half-select {
+  height: 46px !important;
+  padding: 0 20px !important;
+  margin-left: 24px !important;
+  width: 280px !important;
+  font-size: 14px !important;
+  border: 1px solid #8f92a1 !important;
+  outline: none;
+  cursor: pointer;
+}
+
+.input-half:focus {
+  border: 1px #8f92a1 solid;
+  outline: none;
+}
+
+.input-half:nth-child(2) {
+  margin-left: 24px;
+}
+
+.solo-form-group {
+  width: 100%;
+}
+
+.full-input {
+  width: 100%;
+  height: 46px;
+  border-radius: 7px;
+  border: 1px #8f92a1 solid;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.override-full-input {
+  border: none;
+  border-bottom: 1px #8f92a1 solid;
+  border-radius: 0;
+  padding: 0 28px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.override-full-input:focus {
+  outline: none;
+}
+
+.login-form-group {
+  position: relative;
+}
+
+.form-group select {
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 5px;
+  height: 34px;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right;
+  -webkit-appearance: none;
+  background-position-x: 244px;
+}
+
+.email-icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.lock-icon {
+  position: absolute;
+  top: 10px;
+  left: 3px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 40px 0;
+}
+
+.forgot-password {
+  text-decoration: none;
+  color: #0052cc;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.checkbox-group-login {
+  display: flex;
+  align-items: center;
+}
+
+.rmber-me {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.checkbox {
+  background: #deebff;
+}
+
+.solo-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #8f92a1;
+}
+
+.checkbox-text {
+  margin-left: 10px;
+}
+
+.solo-submit {
+  width: 100%;
+}
+
+.input-submit {
+  width: 100%;
+  height: 40px;
+  background: #0052cc;
+  color: white;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.input-submit:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+.input-submit:active {
+  transform: scale(1.05);
+}
+
+@media (max-width: 584px) {
+  .form-section {
+    padding: 5px 8px;
+  }
+  .form-group {
+    flex-direction: column;
+  }
+  .input-half:nth-child(2) {
+    margin-left: 0;
+  }
+  .form-header-text-p {
+    font-size: 27px;
+  }
+  nav {
+    max-width: 240px;
+    margin: 0 auto 0 auto;
+    padding: 20px 0;
+  }
+  .input-half {
+    width: 100%;
+  }
+}
+
+#eyeIcon {
+  position: absolute;
+  cursor: pointer;
+  top: 8px;
+  right: 20px;
+}

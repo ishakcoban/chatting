@@ -32,9 +32,7 @@ export const Register = () => {
       name: name,
       surname: surname,
       email: email,
-      password: password,
-      friends: [],
-      notifications: []
+      password: password
 
     };
 
@@ -48,6 +46,7 @@ export const Register = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status != 500) {
+
           navigate('/');
         } else {
           setError('Existing User')

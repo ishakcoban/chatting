@@ -7,8 +7,11 @@
 }
 
 .flowButton-wrapper {
+  width: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   border-radius: 35px;
   background-color: #d9d9d9;
@@ -34,7 +37,6 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
   padding: 50px;
-  height: 88vh;
   width: 100%;
   align-items: center;
   justify-items: center;
@@ -52,9 +54,7 @@
   background-color: $purple;
 }
 
-.flowButton:hover {
-  background-color: $turquoise;
-}
+
 
 @media only screen and (max-width: 694px) {
   .flowButton-wrapper {
@@ -98,4 +98,10 @@
     font-size: .8rem;
     background-color: $purple;
   }
+}
+
+.accept-request-btn{
+  background-color: $white;
+  color: $purple;
+  border: 1px solid $purple;
 }

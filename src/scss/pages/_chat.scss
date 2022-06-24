@@ -22,11 +22,31 @@
     border-radius: 100%;
     background-color: $purple;
 }
+.chat-list-wrapper:hover{
+    background-color: $grey;
+    cursor: pointer;
+}
 
 .chat-list-wrapper{
-    background-color: $grey;
+    background-color: $white;
     font-size: .8rem;
+    animation-name: ctList;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    margin-top: 35px;
 }
+
+@keyframes ctList{
+    0%{
+        background-color: $grey;
+    }
+    100%{
+        background-color: $white;
+        margin-top: 0px;
+    }
+}
+
+
 
 .chat-list-line{
     width: 100%;
@@ -49,4 +69,33 @@
 .chat-right-top-section{
     height: 76vh;
     overflow-y: auto;
+}
+
+.chatpage-img-wrapper{
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.183);
+    backdrop-filter: blur(8x);
+}
+
+.chatpage-img{
+    width: 35vw;
+    filter: drop-shadow(5px 5px 5px #222); 
+    animation-name: ctimg;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    margin-top: -35px;
+    opacity: 0;
+}
+
+@keyframes ctimg{
+    0%{
+        
+    }
+    100%{
+        opacity: 1;
+        margin-top: 0px;
+    }
 }

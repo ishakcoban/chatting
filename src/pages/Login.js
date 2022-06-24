@@ -37,7 +37,7 @@ export const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        //console.log(data)
         if (data.status != 500) {
           dispatch(AuthActions.login(data.id));
           navigate('/home');
