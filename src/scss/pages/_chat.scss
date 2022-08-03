@@ -1,101 +1,111 @@
-.chat-wrapper{
-    width: 100%;
-    height: 88vh;
-    background: rgb(73, 70, 209);
+.chat-wrapper {
+  width: 100%;
+  height: 88vh;
+  background: rgb(73, 70, 209);
+  background: linear-gradient(
+    0deg,
+    rgba(73, 70, 209, 1) 0%,
+    rgba(100, 199, 255, 1) 100%
+  );
+}
+
+.chat-left-section {
+  width: 100%;
+  height: 88vh;
+  overflow-y: auto;
+  background-color: $white;
+}
+
+.chat-list-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  background-color: $purple;
+}
+
+.chat-list-wrapper {
+  cursor: pointer;
+  background-color: $white;
+  font-size: 0.8rem;
+}
+
+.chat-list-wrapper-anim {
+  animation-name: ctList;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  margin-top: 35px;
+}
+
+.chatlist-bg{
+    background: rgb(100, 199, 255);
     background: linear-gradient(
-      0deg,
-      rgba(73, 70, 209, 1) 0%,
-      rgba(100, 199, 255, 1) 100%
+      120deg,
+      rgba(100, 199, 255, 1) 0%,
+      rgba(73, 70, 209, 1) 100%
     );
-}
-
-.chat-left-section{
-    width: 100%;
-    height: 88vh;
-    overflow-y: auto;
-    background-color: $white;
-}
-
-.chat-list-circle{
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    background-color: $purple;
-}
-.chat-list-wrapper:hover{
-    background-color: $grey;
     cursor: pointer;
-}
 
-.chat-list-wrapper{
+}
+.hver:hover {
+  background-color: $grey;
+}
+@keyframes ctList {
+  0% {
+    background-color: $grey;
+  }
+  100% {
     background-color: $white;
-    font-size: .8rem;
-    animation-name: ctList;
-    animation-duration: .8s;
-    animation-fill-mode: forwards;
-    margin-top: 35px;
+    margin-top: 0px;
+  }
 }
 
-@keyframes ctList{
-    0%{
-        background-color: $grey;
-    }
-    100%{
-        background-color: $white;
-        margin-top: 0px;
-    }
+.chat-list-line {
+  width: 100%;
+  background-color: black;
+  height: 1px;
 }
 
-
-
-.chat-list-line{
-    width: 100%;
-    background-color: black;
-    height: 1px;
+.chat-right-section {
+  width: 100%;
+  height: 88vh;
+  position: relative;
+  background: rgb(73, 70, 209);
+  background: linear-gradient(
+    0deg,
+    rgba(73, 70, 209, 1) 0%,
+    rgba(100, 199, 255, 1) 100%
+  );
 }
 
-.chat-right-section{
-    width: 100%;
-    height: 88vh;
-    position: relative;
-    background: rgb(73, 70, 209);
-    background: linear-gradient(
-      0deg,
-      rgba(73, 70, 209, 1) 0%,
-      rgba(100, 199, 255, 1) 100%
-    );
+.chat-right-top-section {
+  height: 76vh;
+  overflow-y: auto;
 }
 
-.chat-right-top-section{
-    height: 76vh;
-    overflow-y: auto;
+.chatpage-img-wrapper {
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.183);
+  backdrop-filter: blur(8x);
 }
 
-.chatpage-img-wrapper{
-    height: 88vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.183);
-    backdrop-filter: blur(8x);
+.chatpage-img {
+  width: 35vw;
+  filter: drop-shadow(5px 5px 5px #222);
+  animation-name: ctimg;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  margin-top: -35px;
+  opacity: 0;
 }
 
-.chatpage-img{
-    width: 35vw;
-    filter: drop-shadow(5px 5px 5px #222); 
-    animation-name: ctimg;
-    animation-duration: .8s;
-    animation-fill-mode: forwards;
-    margin-top: -35px;
-    opacity: 0;
-}
-
-@keyframes ctimg{
-    0%{
-        
-    }
-    100%{
-        opacity: 1;
-        margin-top: 0px;
-    }
+@keyframes ctimg {
+  0% {
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
 }

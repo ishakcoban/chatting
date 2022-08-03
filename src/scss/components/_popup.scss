@@ -10,7 +10,7 @@
 .popup-cross-img {
   width: 25px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 4;
 }
 
 .top-content {
@@ -47,6 +47,7 @@
   animation-name: pp-bg;
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
+  z-index: 5;
 }
 
 .popup2-content {

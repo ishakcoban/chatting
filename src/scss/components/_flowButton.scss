@@ -32,11 +32,10 @@
 }
 
 .flowbutton-list-wrapper {
-  border-radius: 100px 0px 0px 0px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
-  padding: 50px;
+  padding: 15px 50px 50px 50px;
   width: 100%;
   align-items: center;
   justify-items: center;
@@ -63,7 +62,6 @@
     align-items: center;
     justify-content: space-around;    
     width: 100%;
-    border-radius: 35px;
     background-color: $grey;
     animation-name: btn;
     animation-duration: 0.8s;
@@ -80,7 +78,7 @@
   }
 
   .flowbutton-list-wrapper {
-    border-radius: 100px 0px 0px 0px;
+  
     display: flex;
     flex-direction: column;
     height: 88vh;

@@ -23,7 +23,6 @@
 .home-left-section {
   width: 100%;
   height: 88vh;
-  overflow-y: auto;
 }
 
 .home-right-section {
@@ -36,7 +35,94 @@
     rgba(73, 70, 209, 1) 0%,
     rgba(100, 199, 255, 1) 100%
   );
+
+  .home-right-section-descp {
+    color: $white;
+    font-size: 1.6rem;
+    font-family: $Inter;
+    font-weight: 300;
+  }
+
+  .home-right-section-input {
+    background-color: #d9d9d9a6;
+    border-radius: 20px;
+    border: 0;
+    text-indent: 45px;
+  }
+  .home-right-section-input:focus {
+    outline: none;
+  }
+
+  .home-right-section-input::placeholder {
+    left: 10px;
+  }
 }
+.home-right-section-search-result {
+  top: 15.5vh;
+  height: 72.5vh;
+  z-index: 3;
+  
+  width: 100%;
+
+}
+
+@keyframes hrssr{
+  0%{
+
+  }
+  100%{
+    backdrop-filter: blur(10px);
+    opacity: 1;
+  }
+}
+
+.focusCloseAnim{
+  animation-name: hrssrClose;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
+}
+
+@keyframes hrssrClose{
+  0%{
+    
+    backdrop-filter: blur(10px);
+    opacity: 1;
+  }
+  100%{
+    visibility: hidden;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+.focusOpenAnim{
+  opacity: 0;
+  animation-name: hrssrOpen;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
+}
+
+@keyframes hrssrOpen{
+  0%{
+    
+    backdrop-filter: blur(0px);
+    opacity: 0;
+  }
+  100%{
+    
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.home-right-section-search-result-cart{
+  box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
+  border-radius: 0px 0px 10px 10px;
+  height:50vh;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
 .square {
   width: 100%;
   height: 100px;
@@ -67,21 +153,46 @@
   cursor: pointer;
 }
 
-.friend-list-wrapper{
+.friend-list-wrapper {
   border-radius: 0%;
-  overflow-y: auto;
 }
 
-.friend-list-each-person{
-  border-radius: 35px;
+.fl {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.friend-list-each-person:hover{
-    background-color: #4846d12f;
-    cursor: pointer;
+.fl:hover {
+  background-color: #4846d12f;
 }
 
-.friendlistAnim{
+/*.threeP-wrapper{
+position: absolute;
+width: 100%;
+overflow-x: visible;
+}
+
+.fl:hover > .threeP-wrapper{
+  display: block;
+}*/
+
+.three-points-wrapper {
+  right: 0;
+}
+.points-wrapper {
+  border-radius: 7px;
+}
+
+.points-wrapper:hover {
+  cursor: pointer;
+  background-color: #7574ca84;
+}
+
+.fl:hover > .three-points-wrapper > .three-points {
+  display: flex;
+}
+
+.friendlistAnim {
   animation-name: fAnim;
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
@@ -91,19 +202,16 @@
 }
 
 @keyframes fAnim {
-  0%{
-
+  0% {
   }
-  100%{
+  100% {
     margin-left: 0px;
     margin-top: 0px;
     opacity: 1;
   }
-  
-  
 }
 
-.ls-wrapper{
+.ls-wrapper {
   overflow-y: auto;
   width: 100%;
   height: 88vh;

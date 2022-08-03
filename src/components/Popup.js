@@ -12,7 +12,7 @@ export const Popup = () => {
     return (
         <div className='p-0 m-0'>
             {Popup &&<div className='position-absolute vw-100 vh-100 top-0 p-0 m-0 d-flex justify-content-center align-items-center popup-wrapper2' onClick={popupHandler}>
-                <div className='col-10 col-md-8 col-lg-6 popup2-content position-relative' onClick={(e) => { e.stopPropagation(); }}>
+                <div className='col-10 col-md-8 col-lg-8 col-xl-6 popup2-content position-relative' onClick={(e) => { e.stopPropagation(); }}>
                     <div className='d-flex justify-content-end'><img onClick={popupHandler} className='popup-cross-img mt-3 mx-3' src={cross}></img></div>
                     <div className='top-content text-light d-flex align-items-end'>
                         <div className='w-100'>

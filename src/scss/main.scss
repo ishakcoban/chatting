@@ -2,18 +2,23 @@ body {
   margin: 0;
   padding: 0;
   user-select: none;
+  overflow: hidden;
+  
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
   border-radius: 20px;
+  background-color: rgba(189, 189, 189, 0.723);
+  
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 20px;
+  
 }
 
 /* Handle on hover */
@@ -41,6 +46,8 @@ body {
 @import "./components/sendMessageSection";
 @import "./components/messageLeft";
 @import "./components/messageRight";
+@import "./components/_threePointsDropdown";
+@import "./components/_test";
 
 //templates
 

@@ -1,0 +1,23 @@
+
+
+.infoo{
+  overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.ssssss{
+  animation-name: abc;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  top: 400px;
+}
+
+@keyframes abc{
+  0%{
+top: 400px;
+  }
+  100%{
+    top: 0px;
+  }
+}

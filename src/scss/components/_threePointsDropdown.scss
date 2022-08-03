@@ -1,0 +1,54 @@
+.three-points-wrapper {
+  border-radius: 30px;
+}
+
+.three-points-wrapper:hover {
+  cursor: pointer;
+  background-color: rgba(91, 89, 219, 0.5);
+}
+
+.dd-bg{
+  background-color: rgba(91, 89, 219, 0.5);
+}
+
+.three-points-content-wrapper {
+  background-color: $white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-left: 10px;
+  animation-name: threePointsDrop;
+  animation-duration: 0.4s;
+  margin-top: -10px;
+  margin-left: -10px;
+  animation-fill-mode: forwards;
+}
+
+@keyframes threePointsDrop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+    margin-left: 00px;
+  }
+}
+
+.three-points-content-link {
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+
+.three-points-content-link:hover {
+  cursor: pointer;
+  background-color: rgba(124, 120, 120, 0.463);
+}
+
+.points {
+  width: 5px;
+  height: 5px;
+  background-color: rgba(0, 0, 0, 0.776);
+  border-radius: 100%;
+}

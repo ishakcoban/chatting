@@ -2,12 +2,14 @@ body {
   margin: 0;
   padding: 0;
   user-select: none;
+  overflow: hidden;
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
   border-radius: 20px;
+  background-color: rgba(189, 189, 189, 0.723);
 }
 
 /* Handle */
@@ -42,18 +44,27 @@ body {
   background-color: #4946d1;
 }
 
-.chat-list-wrapper:hover {
-  background-color: #D9D9D9;
+.chat-list-wrapper {
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 0.8rem;
+}
+
+.chat-list-wrapper-anim {
+  animation-name: ctList;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  margin-top: 35px;
+}
+
+.chatlist-bg {
+  background: #64c7ff;
+  background: linear-gradient(120deg, #64c7ff 0%, #4946d1 100%);
   cursor: pointer;
 }
 
-.chat-list-wrapper {
-  background-color: #fff;
-  font-size: .8rem;
-  animation-name: ctList;
-  animation-duration: .8s;
-  animation-fill-mode: forwards;
-  margin-top: 35px;
+.hver:hover {
+  background-color: #D9D9D9;
 }
 
 @keyframes ctList {
@@ -98,7 +109,7 @@ body {
   width: 35vw;
   filter: drop-shadow(5px 5px 5px #222);
   animation-name: ctimg;
-  animation-duration: .8s;
+  animation-duration: 0.8s;
   animation-fill-mode: forwards;
   margin-top: -35px;
   opacity: 0;
@@ -138,7 +149,6 @@ body {
 .home-left-section {
   width: 100%;
   height: 88vh;
-  overflow-y: auto;
 }
 
 .home-right-section {
@@ -147,6 +157,88 @@ body {
   position: relative;
   background: #4946d1;
   background: linear-gradient(0deg, #4946d1 0%, #64c7ff 100%);
+}
+
+.home-right-section .home-right-section-descp {
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+
+.home-right-section .home-right-section-input {
+  background-color: #d9d9d9a6;
+  border-radius: 20px;
+  border: 0;
+  text-indent: 45px;
+}
+
+.home-right-section .home-right-section-input:focus {
+  outline: none;
+}
+
+.home-right-section .home-right-section-input::placeholder {
+  left: 10px;
+}
+
+.home-right-section-search-result {
+  top: 15.5vh;
+  height: 72.5vh;
+  z-index: 3;
+  width: 100%;
+}
+
+@keyframes hrssr {
+  0% {
+  }
+  100% {
+    backdrop-filter: blur(10px);
+    opacity: 1;
+  }
+}
+
+.focusCloseAnim {
+  animation-name: hrssrClose;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
+}
+
+@keyframes hrssrClose {
+  0% {
+    backdrop-filter: blur(10px);
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+.focusOpenAnim {
+  opacity: 0;
+  animation-name: hrssrOpen;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
+}
+
+@keyframes hrssrOpen {
+  0% {
+    backdrop-filter: blur(0px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.home-right-section-search-result-cart {
+  box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
+  border-radius: 0px 0px 10px 10px;
+  height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .square {
@@ -177,16 +269,41 @@ body {
 
 .friend-list-wrapper {
   border-radius: 0%;
-  overflow-y: auto;
 }
 
-.friend-list-each-person {
-  border-radius: 35px;
+.fl {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.friend-list-each-person:hover {
+.fl:hover {
   background-color: #4846d12f;
+}
+
+/*.threeP-wrapper{
+position: absolute;
+width: 100%;
+overflow-x: visible;
+}
+
+.fl:hover > .threeP-wrapper{
+  display: block;
+}*/
+.three-points-wrapper {
+  right: 0;
+}
+
+.points-wrapper {
+  border-radius: 7px;
+}
+
+.points-wrapper:hover {
   cursor: pointer;
+  background-color: #7574ca84;
+}
+
+.fl:hover > .three-points-wrapper > .three-points {
+  display: flex;
 }
 
 .friendlistAnim {
@@ -296,7 +413,6 @@ body {
 
 .dropdown-menuu {
   background-color: #fff;
-  width: 100%;
   padding: 10px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -394,6 +510,16 @@ body {
   background-color: #000;
 }
 
+.date-style {
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.dropdown-link-profile:hover {
+  cursor: pointer;
+  background-color: rgba(124, 120, 120, 0.463);
+}
+
 @keyframes pp-bg {
   0% {
   }
@@ -405,7 +531,7 @@ body {
 .popup-cross-img {
   width: 25px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 4;
 }
 
 .top-content {
@@ -438,6 +564,7 @@ body {
   animation-name: pp-bg;
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
+  z-index: 5;
 }
 
 .popup2-content {
@@ -496,11 +623,10 @@ body {
 }
 
 .flowbutton-list-wrapper {
-  border-radius: 100px 0px 0px 0px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
-  padding: 50px;
+  padding: 15px 50px 50px 50px;
   width: 100%;
   align-items: center;
   justify-items: center;
@@ -525,7 +651,6 @@ body {
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    border-radius: 35px;
     background-color: #D9D9D9;
     animation-name: btn;
     animation-duration: 0.8s;
@@ -540,7 +665,6 @@ body {
     background-color: #4946d1;
   }
   .flowbutton-list-wrapper {
-    border-radius: 100px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     height: 88vh;
@@ -623,6 +747,83 @@ body {
   border-radius: 24px 0px 24px 24px;
   font-size: .8rem;
   font-weight: 400;
+}
+
+.three-points-wrapper {
+  border-radius: 30px;
+}
+
+.three-points-wrapper:hover {
+  cursor: pointer;
+  background-color: rgba(91, 89, 219, 0.5);
+}
+
+.dd-bg {
+  background-color: rgba(91, 89, 219, 0.5);
+}
+
+.three-points-content-wrapper {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-left: 10px;
+  animation-name: threePointsDrop;
+  animation-duration: 0.4s;
+  margin-top: -10px;
+  margin-left: -10px;
+  animation-fill-mode: forwards;
+}
+
+@keyframes threePointsDrop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+    margin-left: 00px;
+  }
+}
+
+.three-points-content-link {
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+
+.three-points-content-link:hover {
+  cursor: pointer;
+  background-color: rgba(124, 120, 120, 0.463);
+}
+
+.points {
+  width: 5px;
+  height: 5px;
+  background-color: rgba(0, 0, 0, 0.776);
+  border-radius: 100%;
+}
+
+.infoo {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.ssssss {
+  animation-name: abc;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  top: 400px;
+}
+
+@keyframes abc {
+  0% {
+    top: 400px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 .bg-wrapper {

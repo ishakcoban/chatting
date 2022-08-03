@@ -41,7 +41,6 @@
 
 .dropdown-menuu {
   background-color: $white;
-  width: 100%;
   padding: 10px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -141,3 +140,15 @@
   height: 1px;
   background-color: #000;
 }
+
+.date-style{
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.dropdown-link-profile:hover{
+  cursor: pointer;
+  background-color: rgba(124, 120, 120, 0.463);
+}
+
+
