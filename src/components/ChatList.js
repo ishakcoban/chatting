@@ -4,7 +4,7 @@ import formatAMPM from '../actions/FormatDate';
 export const ChatList = (props) => {
     const id = useSelector((state) => state.auth.userID);
     return (
-        <div className=''>
+        <div className='' >
 
             <div className='row p-0 m-0 pt-2'>
                 <div className='col-4 col-sm-3 col-lg-3 col-xl-2 '>

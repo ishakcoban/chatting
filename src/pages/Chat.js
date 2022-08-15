@@ -9,6 +9,8 @@ import formatAMPM from '../actions/FormatDate';
 import { MessageActions } from '../store/slices/Message';
 import { Popup } from '../components/Popup';
 import $ from 'jquery';
+import {over} from 'stompjs';
+import SockJS from 'sockjs-client';
 export const Chat = () => {
   const [show, setShow] = useState(null)
   const [chosen, setChosen] = useState([])
@@ -62,7 +64,11 @@ export const Chat = () => {
             {allChatList != null && allChatList.length != null && allChatList.map((e) => {
               return <div className='chat-list-wrapper-anim'>
                 <div className='chat-list-wrapper hver' key={e.id} onClick={(m) => {
-
+                  
+                  /*let Sock = new SockJS('http://localhost:8080/ws');
+                  stompClient = over(Sock);
+                  stompClient.connect({},onConnected, onError);*/
+                  
                   $(".chat-list-wrapper").removeClass("chatlist-bg")
                   m.currentTarget.classList.add('chatlist-bg')
                   $(".chat-list-wrapper").addClass("hver")

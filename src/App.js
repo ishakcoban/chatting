@@ -14,7 +14,7 @@ import {
 import { Navbar } from './components/Navbar';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Try } from './components/Try';
+import  Try  from './components/Try';
 import { ThreePointsDropdown } from './components/ThreePointsDropdown';
 import { DropdownActions } from './store/slices/LeftSideDropdown';
 import { Test } from './components/Test';
@@ -45,19 +45,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div onClick={dropdownStatusHandler}>
+      {<div onClick={dropdownStatusHandler}>
         <div onClick={HomeSectionInputFocusing}>
 
-          {Auth && <Navbar></Navbar>}
+          {/*Auth && <Navbar></Navbar>*/}
+          <Try></Try>
 
-          {<Routes >
+          {/*<Routes >
             {<Route exact path="/" element={<Login />}></Route>}
             {<Route path="/register" element={<Register />}></Route>}
-            {<Route path="/home" element={<div /*onClick={clickHandler}*/><Home /></div>}></Route>}
-            {<Route path="/chat" element={<div /*onClick={clickHandler}*/><Chat /></div>}></Route>}
-          </Routes>}
+            {<Route path="/home" element={<div ><Home /></div>}></Route>}
+            {<Route path="/chat" element={<div ><Chat /></div>}></Route>}
+  </Routes>*/}
         </div>
-      </div>
+</div>}
     </BrowserRouter>
   );
 }
