@@ -114,44 +114,14 @@ const Try = () => {
         <div className="container">
             
             <div><button onClick={() => {
-                /* let Sock = new SockJS('http://localhost:8080/ws');
-                 stompClient = over(Sock);*/
-                //stompClient.debug = null;
                 if (stompClient) {
                     var chatMessage = {
-                        senderName: id,
-                        status: "JOIN",
-                        ss: "sadasdasdsa"
+                        senderId: id,
+                        receiverId: "JOIN",
                     };
 
-                    //stompClient.send("/app/private-message", {}, JSON.stringify(chatMessage));
                     stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
                 }
-                /*stompClient.connect({}, () => {
-                    
-                    
-                    if (stompClient) {
-                        var chatMessage = {
-                            senderName: id,
-                            receiverName: 'x',
-                            message: 'y',
-                            status: "MESSAGE"
-                        };
-                        //console.log('bottom')
-                        //stompClient.subscribe('/chatroom/public', onMessageReceived);
-                        //stompClient.subscribe('/user/' + id + '/private', {});
-                        
-                        //stompClient.send("/app/private-message", {}, JSON.stringify(chatMessage));
-                        
-                        
-                        //console.log(stompClient)
-                    }
- 
-                    
- 
-                }, onError);*/
-
-
 
             }
             }>Click</button></div>
@@ -162,27 +132,9 @@ const Try = () => {
                     stompClient.subscribe('/chatroom/public', function (frame) {
 
                         var messages = JSON.parse(frame.body)
-                        //console.log(messages.senderName)
-                        setSocketResponse(messages.senderName)
+                        setSocketResponse(messages.senderId)
                     });
-                    //stompClient.subscribe('/chatroom/public', {});
-                    //stompClient.subscribe('/user/' + id + '/private', {});
-                    /*if (stompClient) {
-                        var chatMessage = {
-                            senderName: id,
-                            receiverName: 'x',
-                            message: 'y',
-                            status: "MESSAGE"
-                        };
-                        //console.log('bottom')
-                        //stompClient.subscribe('/chatroom/public', onMessageReceived);
-                        //stompClient.subscribe('/user/' + id + '/private', {});
-
-                        /*stompClient.subscribe('/chatroom/public', onMessageReceived);
-                        stompClient.subscribe('/user/' + userData.username + '/private', onPrivateMessage);*/
-                    //stompClient.send("/chatroom/public", {}, JSON.stringify(chatMessage));
-                    //console.log(stompClient)
-                    /* }*/
+                   
 
                 }, onError);
             }}>start</button></div>

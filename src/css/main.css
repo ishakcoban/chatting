@@ -357,6 +357,8 @@ overflow-x: visible;
   background-color: #4946d1;
   color: #fff;
   border-radius: 45px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
 }
 
 .log-register-link {
@@ -366,6 +368,20 @@ overflow-x: visible;
 .log-register-link:hover {
   cursor: pointer;
   color: blue;
+}
+
+.forgotPassword-input {
+  border-radius: 45px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #4946d1;
+  width: 100%;
+  background-color: #d9d9d962;
+  text-indent: 10px;
+}
+
+textarea:focus, .forgotPassword-input:focus {
+  outline: none;
 }
 
 .logo-name {
@@ -742,10 +758,11 @@ overflow-x: visible;
 }
 
 .message-content-wrapper-right {
+  width: 25%;
   background-color: #4946d1;
   color: #fff;
   border-radius: 24px 0px 24px 24px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
@@ -834,6 +851,13 @@ overflow-x: visible;
 }
 
 .login-register-card {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 45px;
+  margin-bottom: 155px;
+}
+
+.forgotPassword-card {
   background-color: #fff;
   border-radius: 25px;
   padding: 45px;

@@ -61,8 +61,6 @@ export const Home = () => {
       });
   }, [notificationUpdate])
 
-  /**/
-
   const showHandler = () => {
     setShow(!show);
   }
@@ -82,21 +80,17 @@ export const Home = () => {
   /*const generalWrapper = () => {
     setShowFocus(false)
   }*/
-console.log()
+
   return (
     <div className="container-fluid m-0 p-0" /*onClick={generalWrapper}*/>
       <div className='row home-section-wrapper m-0 p-0' >
 
         {show && <div className='col-12 col-sm-3 col-md-4 col-lg-2 col-xl-2 home-left-section m-0 p-0 d-flex flex-column justify-content-start '>
 
-
           <div className='mx-3'>
             <div className='me-1'>your friends</div>
             <hr className='left-section-line'></hr>
           </div>
-
-
-
 
           <div className='friend-list-wrapper' style={{ "zIndex": "10" }}>
 
@@ -107,8 +101,6 @@ console.log()
 
               </div>
             })}
-
-
 
           </div>
 
@@ -138,7 +130,6 @@ console.log()
                   <div className='position-absolute w-100'><input onClick={focusWrapper} className='justify-self-end home-right-section-input p-1 w-100  pt-2 pb-2' placeholder='Search a person...' /></div>
 
                 </div>
-
 
               </div>
 

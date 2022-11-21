@@ -9,15 +9,14 @@ import formatAMPM from '../actions/FormatDate';
 import { MessageActions } from '../store/slices/Message';
 import { Popup } from '../components/Popup';
 import $ from 'jquery';
-import {over} from 'stompjs';
-import SockJS from 'sockjs-client';
+
 export const Chat = () => {
   const [show, setShow] = useState(null)
-  const [chosen, setChosen] = useState([])
   const [allMessages, setAllmessages] = useState(null)
   const [allChatList, setAllChatList] = useState([])
   const id = useSelector((state) => state.auth.userID);
   const msg = useSelector((state) => state.message.message);
+  const socketResponse = useSelector((state) => state.msg.msg);
   const dispatch = useDispatch();
   useEffect(() => {
     if (document.querySelector('#messageBody')) {
@@ -26,7 +25,7 @@ export const Chat = () => {
       messageBody.scrollTop = messageBody.scrollHeight;
 
     }
-  }, [msg,allChatList])
+  }, [msg, allChatList])
   /*****************************Chat List************************************ */
   useEffect(() => {
     //console.log(allMessages)
@@ -44,13 +43,57 @@ export const Chat = () => {
       .then((response) => response.json())
       .then((data) => {
         setAllChatList(data)
-        //setAllmessages([])
         //console.log(data)
-        //setAllmessages(null)
 
       });
 
   }, [msg])
+
+  useEffect(() => {
+    //console.log(allMessages)
+
+    if (socketResponse != null) {
+      if (socketResponse.senderId == id) {                                                                                                                                                                                                                                                                                                                                                                                                      
+        let values = {
+          "id": id
+        }
+        fetch("http://localhost:8080/api/participant/getAllChatList/" + id, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setAllChatList(data)
+            //console.log(data)
+
+          });
+      }
+      else if(socketResponse.receiverId == id){
+        let values = {
+          "id": id
+        }
+        fetch("http://localhost:8080/api/participant/getAllChatList/" + id, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setAllChatList(data)
+            //console.log(data)
+
+          });
+      }
+    }
+
+
+
+  }, [socketResponse])
 
 
   return (
@@ -61,14 +104,10 @@ export const Chat = () => {
 
           <div id='flwrapper' className='friend-list-wrapper '>
 
-            {allChatList != null && allChatList.length != null && allChatList.map((e) => {
-              return <div className='chat-list-wrapper-anim'>
-                <div className='chat-list-wrapper hver' key={e.id} onClick={(m) => {
-                  
-                  /*let Sock = new SockJS('http://localhost:8080/ws');
-                  stompClient = over(Sock);
-                  stompClient.connect({},onConnected, onError);*/
-                  
+            {allChatList != null && allChatList.length != 0 && allChatList.map((e) => {
+              return <div key={e.id} className='chat-list-wrapper-anim'>
+                <div className='chat-list-wrapper hver' onClick={(m) => {
+
                   $(".chat-list-wrapper").removeClass("chatlist-bg")
                   m.currentTarget.classList.add('chatlist-bg')
                   $(".chat-list-wrapper").addClass("hver")
@@ -92,7 +131,7 @@ export const Chat = () => {
 
         <div className='col-8 col-sm-7 col-md-8 col-lg-9 col-xl-9 chat-right-section m-0 p-0' >
 
-          {show && <div id="messageBody"   className='chat-right-top-section p-3'>
+          {show && <div id="messageBody" className='chat-right-top-section p-3'>
 
 
             {show && allChatList != null &&
@@ -100,11 +139,11 @@ export const Chat = () => {
               allChatList.map(m => {
                 return m.participants.map(e => {
                   return e.id == allMessages ? (m.messages.map(e => {
-                    return <div key={e.id}>{e.sender == id ? <MessageRight content={e.content} date={formatAMPM(new Date(e.dateTime))}></MessageRight> : <MessageLeft content={e.content} date={formatAMPM(new Date(e.dateTime))}></MessageLeft>}</div>})) : null})})
-              }
-             
-
-
+                    return <div key={e.id}>{e.sender == id ? <MessageRight content={e.content} date={formatAMPM(new Date(e.dateTime))}></MessageRight> : <MessageLeft content={e.content} date={formatAMPM(new Date(e.dateTime))}></MessageLeft>}</div>
+                  })) : null
+                })
+              })
+            }
 
           </div>}
 

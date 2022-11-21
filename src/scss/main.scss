@@ -37,6 +37,7 @@ body {
 @import "./pages/home";
 @import "./pages/login";
 @import "./pages/register";
+@import "./pages/forgotPassword";
 
 //components
 
@@ -52,4 +53,4 @@ body {
 //templates
 
 @import "./templates/background";
-@import "./templates/loginRegister"
+@import "./templates/authenticationCard"

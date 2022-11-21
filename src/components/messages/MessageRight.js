@@ -17,11 +17,13 @@ export const MessageRight = (props) => {
    console.log(formatAMPM(new Date));*/
 
   return (
-    <div className='container-fluid m-0 p-0 d-flex justify-content-end m-2'>
-      <div className='message-content-wrapper-right pt-3 pe-3 ps-3'>
-        <div className='flex-wrap'>{props.content} </div>
-        <div className=' d-flex justify-content-end mr-3'>{props.date}</div>
-      </div>
+    <div className='container-fluid m-0 p-0 d-flex justify-content-end mt-2 mb-2'>
+  
+        <div className='message-content-wrapper-right pt-3 pe-3 ps-3 me-5'>
+          <div className='flex-wrap'>{props.content} </div>
+          <div className=' d-flex justify-content-end mr-3'>{props.date}</div>
+        </div>
+
     </div>
   )
 }

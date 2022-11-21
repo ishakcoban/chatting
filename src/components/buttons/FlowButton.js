@@ -5,11 +5,51 @@ export const FlowButton = (props) => {
 
   const userid = useSelector((state) => state.auth.userID);
   const notificationUpdate = useSelector((state) => state.notification.notification);
+  const stompClient = useSelector((state) => state.stompClient.stompClient);
   const dispatch = useDispatch();
   const [buttonStatus, setButtonStatus] = useState("");
   const [change, setChange] = useState(false);
+  const socketResponse = useSelector((state) => state.msg.msg);
 
+  useEffect(() => {
 
+    if (socketResponse != null) {
+      if (socketResponse.receiverId == userid) {
+    let values = {
+      "id": props.id
+    }
+    fetch("http://localhost:8080/api/notification/buttonStatus/" + userid, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setButtonStatus(data.status)
+
+      });
+    }else if(socketResponse.senderId == userid){
+      let values = {
+        "id": props.id
+      }
+      fetch("http://localhost:8080/api/notification/buttonStatus/" + userid, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setButtonStatus(data.status)
+  
+        });
+    }}
+  }, [socketResponse])
 
   useEffect(() => {
     let values = {
@@ -24,12 +64,14 @@ export const FlowButton = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setButtonStatus(data.status)
 
       });
   }, [change])
 
   const requestHandler = (e) => {
+
 
     if (e.target.innerHTML == 'Add') {
 
@@ -49,6 +91,15 @@ export const FlowButton = (props) => {
           console.log(data)
           setChange(!change)
 
+          var chatMessage = {
+            senderId: userid,
+            receiverId: props.id,
+          };
+          if (stompClient) {
+    
+            stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+          }
+
         });
 
     } else if (e.target.innerHTML == 'Requested') {
@@ -67,7 +118,14 @@ export const FlowButton = (props) => {
         .then((data) => {
           console.log(data)
           setChange(!change)
-
+          var chatMessage = {
+            senderId: userid,
+            receiverId: props.id,
+          };
+          if (stompClient) {
+    
+            stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+          }
         });
 
 
@@ -89,7 +147,14 @@ export const FlowButton = (props) => {
           props.callBack()
           console.log(data)
           setChange(!change)
-
+          var chatMessage = {
+            senderId: userid,
+            receiverId: props.id,
+          };
+          if (stompClient) {
+    
+            stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+          }
         });
       dispatch(NotificationActions.changeState())
     }

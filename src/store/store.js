@@ -6,7 +6,8 @@ import FriendRequestReducer from "./slices/FriendRequest";
 import NotificationReducer from "./slices/Notification";
 import DropdownReducer from "./slices/LeftSideDropdown"
 import FocusInputReducer from "./slices/HomeSectionInputFocus";
-
+import WebSocketClientReducer from "./slices/WebSocketClient";
+import WebSocketMessageReducer from "./slices/WebSocketMessage"
 const store = configureStore({
     reducer:{auth :AuthReducer.reducer,
         popup:PopupReducer.reducer,
@@ -14,8 +15,15 @@ const store = configureStore({
         request:FriendRequestReducer.reducer,
         notification:NotificationReducer.reducer,
         dropdown:DropdownReducer.reducer,
-        focusInput:FocusInputReducer.reducer
-    } 
+        focusInput:FocusInputReducer.reducer,
+        stompClient:WebSocketClientReducer.reducer,
+        msg:WebSocketMessageReducer.reducer
+
+    } ,
+    middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })
 
 export default store;

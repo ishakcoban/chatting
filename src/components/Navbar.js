@@ -19,13 +19,25 @@ import { DropdownActions } from '../store/slices/LeftSideDropdown';
 export const Navbar = (props) => {
     const [showProfileDropdown, setShowProfileDropdown] = useState(false);
     const [showNotificationDropdown, setShowNotificationDropdown] = useState(false);
+    const [notificationCounter, setNotificationCounter] = useState(0);
     const navigate = useNavigate();
     const userid = useSelector((state) => state.auth.userID);
     const notificationUpdate = useSelector((state) => state.notification.notification);
+    const stompClient = useSelector((state) => state.stompClient.stompClient);
     const ddStatus = useSelector((state) => state.notification.notification);
+    const socketResponse = useSelector((state) => state.msg.msg);
     const focusInput = useSelector((state) => state.focusInput.focusInput);
     const dispatch = useDispatch();
     const [notifications, setNotifications] = useState([])
+    const msg = useSelector((state) => state.message.message);
+    const Auth = useSelector((state) => state.auth.authentication);
+
+    useEffect(() => {
+    
+
+
+    }, [])
+    
 
     useEffect(() => {
 
@@ -38,9 +50,88 @@ export const Navbar = (props) => {
         })
             .then((response) => response.json())
             .then((data) => {
+                console.log(notifications)
                 setNotifications(data)
+
+                let counter = 0;
+                if (data != 0) {
+                    data.map(e => {
+                        if (!e.seen) {
+                            counter++;
+                        }
+        
+                    })
+                    
+                    setNotificationCounter(counter);
+                  
+                } else{
+                    setNotificationCounter(0);
+                }
             });
+      
+        
     }, [notificationUpdate])
+    useEffect(() => {
+        if (socketResponse != null) {
+            if (socketResponse.receiverId == userid) {
+        fetch("http://localhost:8080/api/notification/getAllNotifications/" + userid, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+        })
+            .then((response) => response.json())
+            .then((data) => {
+             
+                setNotifications(data)
+
+                let counter = 0;
+                if (data != 0) {
+                    data.map(e => {
+                        if (!e.seen) {
+                            counter++;
+                        }
+        
+                    })
+                    console.log('counter: ' + counter);
+                    setNotificationCounter(counter);
+                  
+                } else{
+                    setNotificationCounter(0);
+                }
+            });
+            }else if(socketResponse.senderId == userid){
+                fetch("http://localhost:8080/api/notification/getAllNotifications/" + userid, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+        
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data)
+                        setNotifications(data)
+        
+                        let counter = 0;
+                        if (data != 0) {
+                            data.map(e => {
+                                if (!e.seen) {
+                                    counter++;
+                                }
+                
+                            })
+                            
+                            setNotificationCounter(counter);
+                          
+                        } else{
+                            setNotificationCounter(0);
+                        }
+                    });
+            }
+        }
+    }, [socketResponse])
 
     const infoHandler = () => {
         dispatch(PopupActions.changeState());
@@ -54,20 +145,28 @@ export const Navbar = (props) => {
         if (showNotificationDropdown) {
             setShowNotificationDropdown(false)
         }
-
-
-
-
     }
     const notificationHandler = () => {
-        /*if (ddStatus == false) {
-            dispatch(DropdownActions.changeState(true));
-        }*/
+
+        fetch("http://localhost:8080/api/notification/setTrueAllSeenStatus/" + userid, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data + "sdasdsadsadsad123123");
+                setNotificationCounter(0)
+           
+            });
+        NotificationActions.changeState(!notificationUpdate)
         setShowNotificationDropdown(!showNotificationDropdown)
         if (showProfileDropdown) {
             setShowProfileDropdown(false)
         }
-
+       
     }
 
     const clickOnChild = (event) => {
@@ -111,6 +210,14 @@ export const Navbar = (props) => {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data)
+                    var chatMessage = {
+                        senderId: userid,
+                        receiverId: friendId,
+                      };
+                      if (stompClient) {
+                
+                        stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+                      }
                     dispatch(NotificationActions.changeState())
 
                 });
@@ -118,7 +225,6 @@ export const Navbar = (props) => {
         }
 
     }
-
     const logOutHandler = () => {
         dispatch(AuthActions.logout())
         navigate('/');
@@ -139,7 +245,7 @@ export const Navbar = (props) => {
                             <div className='position-relative d-flex justify-content-center notify-wrapper' >
                                 <div className='position-absolute' onClick={notificationHandler}>
                                     <img id="dr" className='navbar-image' src={showNotificationDropdown ? notification1 : notification}></img>
-                                    {notifications.length == 0 ? null : <div className='position-absolute notification-circle d-flex justify-content-center align-items-center'>{notifications.length}</div>}
+                                    {notificationCounter != 0 && <div className='position-absolute notification-circle d-flex justify-content-center align-items-center'>{notificationCounter}</div>}
 
                                 </div>
                             </div>
@@ -147,25 +253,28 @@ export const Navbar = (props) => {
                                 <div className='position-absolute dropdown-menuu ntf text-start'>
                                     <div className='dropdown-link '>
 
-                                        {notifications.length == 0 ? null :
+                                        {
+                                            Array.isArray(notifications) ?
+                                            notifications.length == 0 ? null :
+                                        
                                             notifications.map(e => {
 
                                                 return e.accepted == undefined ?
-                                                    <div key={e.sender}><div ><span style={{ color: '#4946d1', fontWeight: 'bold' }}>{e.sender}</span> accepted your friend request.</div>
+                                                    <div key={e.sender.id}><div ><span style={{ color: '#4946d1', fontWeight: 'bold' }}>{e.sender.name + ' ' + e.sender.surname}</span> accepted your friend request.</div>
                                                         <div className='text-end date-style'>{formatAMPM(new Date(e.date))}</div>
                                                         <div className='notification-line'></div>
                                                     </div> :
                                                     <div key={e.sender}>
 
-                                                        <div><span style={{ color: '#4946d1', fontWeight: 'bold' }}>{e.sender}</span> requested to you for being friend with you.</div>
+                                                        <div><span style={{ color: '#4946d1', fontWeight: 'bold' }}>{e.sender.name + ' ' + e.sender.surname}</span> requested to you for being friend with you.</div>
                                                         <div className='d-flex mt-2'>
-                                                            <button className='accept-ignore-button accept-button-special px-3 fw-normal' onClick={(m) => requestHandler(m.target.innerHTML, e.sender)}>Accept</button>
-                                                            <button className='accept-ignore-button ignore-button-special ms-2 px-3 fw-normal' onClick={(m) => requestHandler(m.target.innerHTML, e.sender)}>Ignore</button>
+                                                            <button className='accept-ignore-button accept-button-special px-3 fw-normal' onClick={(m) => requestHandler(m.target.innerHTML, e.sender.id)}>Accept</button>
+                                                            <button className='accept-ignore-button ignore-button-special ms-2 px-3 fw-normal' onClick={(m) => requestHandler(m.target.innerHTML, e.sender.id)}>Ignore</button>
                                                         </div>
                                                         <div className='text-end date-style'>{formatAMPM(new Date(e.date))}</div>
                                                         <div className='notification-line'></div>
                                                     </div>
-                                            })}
+                                            }):null}
 
 
                                     </div>

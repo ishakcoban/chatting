@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { BackgroundTemplate } from '../components/BackgroundTemplate';
-import { LoginRegisterCard } from '../components/LoginRegisterCard';
+import { AuthenticationCard } from '../components/AuthenticationCard';
 export const Register = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -57,13 +57,13 @@ export const Register = () => {
   return (
     <BackgroundTemplate>
       <div className='logo-wrapper mt-5'>Chattin'</div>
-      <LoginRegisterCard>
+      <AuthenticationCard authInfo = 'login-register-card col-8 col-sm-5 col-md-4 col-lg-3 col-xl-3'>
         <div><input className='input p-2' placeholder='name' onChange={nameHandler}></input></div>
         <div className='mt-3'><input className='input p-2' placeholder='surname' onChange={surnameHandler} ></input></div>
         <div className='mt-3'><input className='input p-2' placeholder='email' onChange={emailHandler}></input></div>
         <div className='mt-3'><input className='input p-2' placeholder='password' onChange={passwordHandler} type="password"></input></div>
         <div className='d-flex justify-content-center mt-3'><button className='log-reg-button px-5 pt-2 pb-2' onClick={registerHandler}>Register</button></div>
-      </LoginRegisterCard>
+      </AuthenticationCard>
     </BackgroundTemplate>
   )
 }
